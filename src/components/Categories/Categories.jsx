@@ -1,7 +1,12 @@
+import { useNavigate } from 'react-router-dom';
 import style from  './styles.module.scss'
 
 export const Categories =({category}) => {
-  const { imageUrl, title } = category;
+  const { imageUrl, title , route} = category;
+
+  const navigate = useNavigate();
+
+  const inNavigateHandler = () => navigate(route)
     
     
       return (
@@ -13,7 +18,7 @@ export const Categories =({category}) => {
             backgroundImage: `url(${imageUrl})`,
           }}
         />
-        <div className={style.category_body_container}>
+        <div className={style.category_body_container} onClick={inNavigateHandler}>
           <h2>{title}</h2>
           <p>Shop Now</p>
         </div>
