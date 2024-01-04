@@ -5,14 +5,15 @@ import { Routes, Route } from "react-router-dom";
 //import style from  './styles.module.scss'
 import { CategoriesPreviewRoute } from '../../routes/categories-preview-route/CategoriesPreviewRoute';
 import { Category } from '../../routes/category/Category';
-import { fetchCategoriesAsync } from '../../store/categories/categories.action';
+import {  fetchCategoriesStart } from '../../store/categories/categories.action';
 
 
 export const Shop = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchCategoriesAsync());
+    //dispatch(fetchCategoriesAsync());
+    dispatch(fetchCategoriesStart())
 
 }, []);
 
