@@ -24,9 +24,8 @@ export const Sign_In_Form = () => {
         event.preventDefault();
      
         try {
-            const {user }= await signInAuthUserWithEmailAndPassword(email, password);
+           await signInAuthUserWithEmailAndPassword(email, password);
 
-            console.log(user)
             resetFormField();
         } catch (error) {   
             switch (error.code) {
@@ -58,9 +57,19 @@ export const Sign_In_Form = () => {
             <span>Sign in with your email and password</span>
             <form onSubmit={handleSubmit}>
 
-                <Form_Input label="Email" type="email" name="email" id="" value={email}required onChange={handleChange}/>
+                <Form_Input 
+                label="Email" 
+                type="email" 
+                name="email" id=""
+                 value={email} required 
+                 onChange={handleChange}/>
 
-                <Form_Input label="Password" type="password" name="password" id="" value={password} required onChange={handleChange}/>
+                <Form_Input 
+                label="Password" 
+                type="password" 
+                name="password" id="" 
+                value={password} required 
+                onChange={handleChange}/>
 
                 <div className={style.buttons_container}>
                     <Button  type="submit">Sign In</Button>
